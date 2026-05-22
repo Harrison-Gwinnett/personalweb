@@ -1,0 +1,117 @@
+import Link from 'next/link'
+import NavDesktop from '@/components/NavDesktop'
+import type { Article } from '@/lib/articles'
+
+const GS = 'var(--font-geist-sans), system-ui, sans-serif'
+const GM = 'var(--font-geist-mono), system-ui, sans-serif'
+
+// Article body is currently static (the "cost of almost-right" piece).
+// When you add more articles, replace this with a CMS lookup.
+function ArticleBody() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', paddingTop: '54px', width: '100%' }}>
+      {[
+        'Every product accumulates a quiet debt. Not the technical kind that shows up in a backlog, but something softer and harder to name: the things that are almost right. The button sitting two pixels low. The empty state nobody bothered to write. The error message that technically tells the truth and helps no one.',
+        'Individually, none of these is worth stopping for — and that is exactly what makes them dangerous. Each one is small enough to wave past, there are thousands of them, and together they are the whole difference between software that feels cheap and software that feels considered.',
+      ].map((p, i) => (
+        <div key={i} style={{ color: '#33352E', fontFamily: GS, fontSize: '19px', letterSpacing: '-0.01em', lineHeight: '32px', width: '600px' }}>
+          {p}
+        </div>
+      ))}
+
+      {/* Section heading */}
+      <div style={{ display: 'inline-block', paddingTop: '18px', width: '644px' }}>
+        <span style={{ color: '#1B1C18', fontFamily: GS, fontSize: '23px', fontWeight: 600, letterSpacing: '-0.015em', lineHeight: '30px' }}>Almost-right compounds</span>
+      </div>
+
+      <div style={{ color: '#33352E', fontFamily: GS, fontSize: '19px', letterSpacing: '-0.01em', lineHeight: '32px', width: '600px' }}>
+        The cost was never the fix. The cost is that almost-right quietly teaches everyone around it that almost-right is acceptable. The next person sees the two-pixel gap and matches it. The one after that rounds down a little further. Standards don't collapse in a meeting — they erode one reasonable compromise at a time.
+      </div>
+
+      {/* Pull quote */}
+      <div style={{ borderLeftColor: '#1F5A3D', borderLeftStyle: 'solid', borderLeftWidth: '2px', display: 'flex', flexDirection: 'column', paddingBottom: '14px', paddingLeft: '30px', paddingTop: '14px', width: '616px' }}>
+        <span style={{ color: '#1B1C18', fontFamily: GS, fontSize: '25px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '37px' }}>
+          You don't decide your standards once. You decide them again every time you choose not to fix something.
+        </span>
+      </div>
+
+      {[
+        'The teams that make things people love are not smarter about the big decisions. They are simply unwilling to live with the small wrong ones. They treat "good enough for now" as a loan with interest, and they pay it down while it is still cheap.',
+        'So the discipline is unglamorous: notice the almost-right thing, and fix it before it quietly becomes the baseline. Not all of it, and not at once — but enough, and often enough, that the people around you learn what the bar actually is by watching where you refuse to drop it.',
+      ].map((p, i) => (
+        <div key={i} style={{ color: '#33352E', fontFamily: GS, fontSize: '19px', letterSpacing: '-0.01em', lineHeight: '32px', width: i === 0 ? '644px' : '600px' }}>
+          {p}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default function ArticleDesktop({ article }: { article: Article }) {
+  return (
+    <div
+      style={{
+        alignItems: 'center',
+        backgroundColor: '#F3F1E9',
+        display: 'flex',
+        flexDirection: 'column',
+        fontSize: '12px',
+        fontSynthesis: 'none',
+        lineHeight: '16px',
+        paddingBottom: '72px',
+        paddingTop: '56px',
+      }}
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', width: '768px' }}>
+        <NavDesktop />
+
+        {/* Article header */}
+        <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '92px', width: '100%' }}>
+          <Link href="/ideas" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>
+            ← ALL IDEAS
+          </Link>
+          <div style={{ display: 'inline-block', paddingTop: '60px' }}>
+            <span style={{ color: '#5E6157', fontFamily: GM, fontSize: '13px', letterSpacing: '0.08em', lineHeight: '16px' }}>
+              {article.date} · {article.readTime} READ · {article.category}
+            </span>
+          </div>
+          <div style={{ display: 'inline-block', paddingTop: '22px', width: '680px' }}>
+            <h1 style={{ color: '#1B1C18', fontFamily: GS, fontSize: '44px', fontWeight: 600, letterSpacing: '-0.025em', lineHeight: '52px', margin: 0 }}>
+              {article.title}
+            </h1>
+          </div>
+          <div style={{ paddingTop: '22px', width: '600px' }}>
+            <p style={{ color: '#6B6E63', fontFamily: GS, fontSize: '21px', letterSpacing: '-0.01em', lineHeight: '32px', margin: 0 }}>
+              {article.description}
+            </p>
+          </div>
+        </div>
+
+        <ArticleBody />
+
+        {/* Post-article nav */}
+        <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '60px', width: '100%' }}>
+          <div style={{ backgroundColor: '#D7D5C9', flexShrink: 0, height: '1px', width: '100%' }} />
+          <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between', paddingTop: '24px', width: '100%' }}>
+            <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', letterSpacing: '0.06em', lineHeight: '16px' }}>WRITTEN BY HARRISON · AARVO</span>
+            {article.nextSlug && (
+              <Link href={`/ideas/${article.nextSlug}`} style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>
+                NEXT — {article.nextTitle} →
+              </Link>
+            )}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div style={{ alignItems: 'center', borderTopColor: '#D7D5C9', borderTopStyle: 'solid', borderTopWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingTop: '80px', width: '100%' }}>
+          <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', letterSpacing: '0.04em', lineHeight: '16px' }}>© 2026 HARRISON · AARVO</span>
+          <div style={{ alignItems: 'center', display: 'flex', gap: '22px' }}>
+            <a href="https://x.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
+            <a href="https://github.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>GITHUB ↗</a>
+            <a href="mailto:harrison@aarvo.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>EMAIL ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
