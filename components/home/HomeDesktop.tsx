@@ -101,11 +101,13 @@ export default function HomeDesktop() {
                   paddingTop: '3px',
                 }}
               >
-                <div style={{ alignItems: 'center', backgroundColor: '#1F5A3D', borderRadius: '4px', display: 'flex', flexShrink: 0, height: '17px', justifyContent: 'center', width: '17px' }}>
-                  <span style={{ color: '#F3F1E9', fontFamily: GM, fontSize: '10px', fontWeight: 700, lineHeight: '100%' }}>a</span>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/aarvo-icon.svg" alt="aarvo" width={17} height={17} style={{ borderRadius: '4px', display: 'block', flexShrink: 0 }} />
                 <span style={{ color: '#1B1C18', fontFamily: GS, fontSize: '13px', fontWeight: 600, letterSpacing: '-0.01em', lineHeight: '100%' }}>aarvo.com</span>
-                <span style={{ color: '#8A8C7F', fontSize: '11px', lineHeight: '100%' }}>↗</span>
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
+                  <path d="M11.7119 11.3586C11.5775 11.2243 11.4927 11.0333 11.4927 10.8283L11.4927 4.50674L5.17113 4.50674C4.75394 4.50674 4.41806 4.17086 4.4216 3.7572C4.4216 3.34001 4.75747 3.00413 5.17113 3.00767H12.2422C12.6594 3.00767 12.9953 3.34354 12.9917 3.7572L12.9917 10.8283C12.9917 11.2455 12.6559 11.5813 12.2422 11.5778C12.0371 11.5778 11.8462 11.493 11.7119 11.3586Z" fill="#8A8C7F"/>
+                  <path d="M3.22659 12.7728C2.93314 12.4794 2.93314 12.0056 3.22659 11.7122L11.2947 3.64407C11.5881 3.35062 12.0619 3.35062 12.3553 3.64407C12.6488 3.93751 12.6488 4.41128 12.3553 4.70473L4.28725 12.7728C3.9938 13.0663 3.52004 13.0663 3.22659 12.7728Z" fill="#8A8C7F"/>
+                </svg>
               </a>
             </div>
             <div style={{ color: '#41443B', fontFamily: GS, fontSize: '18px', letterSpacing: '-0.005em', lineHeight: '31px' }}>
