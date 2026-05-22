@@ -1,5 +1,7 @@
+'use client'
 import Link from 'next/link'
 import MobileNav from '@/components/MobileNav'
+import { FadeUp, FadeIn } from '@/components/motion/primitives'
 
 const GS = 'var(--font-geist-sans), system-ui, sans-serif'
 const GM = 'var(--font-geist-mono), system-ui, sans-serif'
@@ -19,6 +21,7 @@ function ArticleRow({ slug, title, meta }: { slug: string; title: string; meta: 
   return (
     <Link
       href={`/ideas/${slug}`}
+      className="article-row"
       style={{
         borderBottomColor: '#E2E0D5',
         borderBottomStyle: 'solid',
@@ -42,26 +45,23 @@ function ArticleRow({ slug, title, meta }: { slug: string; title: string; meta: 
 
 export default function HomeMobile() {
   return (
-    <div
-      style={{
-        backgroundColor: '#F3F1E9',
-        display: 'flex',
-        flexDirection: 'column',
-        fontSize: '12px',
-        fontSynthesis: 'none',
-        lineHeight: '16px',
-        width: '100%',
-      }}
-    >
+    <div style={{ backgroundColor: '#F3F1E9', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', width: '100%' }}>
       <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '44px', paddingLeft: '24px', paddingRight: '24px', paddingTop: '16px', width: '100%' }}>
-        <MobileNav />
+
+        {/* Nav */}
+        <FadeIn delay={0} style={{ width: '100%' }}>
+          <MobileNav />
+        </FadeIn>
 
         {/* Hero */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '54px', width: '100%' }}>
-          <div style={{ color: '#1B1C18', fontFamily: GS, fontSize: '24px', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: '33px', width: '100%' }}>
-            I care about the unglamorous distance between a product that merely works and one that feels inevitable.
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+          <FadeUp delay={0.07}>
+            <div style={{ color: '#1B1C18', fontFamily: GS, fontSize: '24px', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: '33px', width: '100%' }}>
+              I care about the unglamorous distance between a product that merely works and one that feels inevitable.
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.15} style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
             <div style={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
               <span style={{ color: '#41443B', fontFamily: GS, fontSize: '16px', letterSpacing: '-0.005em', lineHeight: '26px' }}>
                 I'm Harrison, founder of
@@ -70,6 +70,7 @@ export default function HomeMobile() {
                 href="https://aarvo.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="aarvo-chip"
                 style={{
                   alignItems: 'center',
                   backgroundColor: '#ECEAE1',
@@ -96,35 +97,49 @@ export default function HomeMobile() {
             <div style={{ color: '#41443B', fontFamily: GS, fontSize: '16px', letterSpacing: '-0.005em', lineHeight: '26px' }}>
               I spend my days helping fast-moving teams ship software people actually love — and I write here about craft, clarity, and the narrow gap between good and great.
             </div>
-          </div>
+          </FadeUp>
         </div>
 
         {/* Writing index */}
         <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '46px', paddingTop: '62px', width: '100%' }}>
-          <div style={{ alignItems: 'center', borderBottomColor: '#D7D5C9', borderBottomStyle: 'solid', borderBottomWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingBottom: '15px', width: '100%' }}>
-            <span style={{ color: '#5E6157', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.1em', lineHeight: '16px' }}>SELECTED WRITING</span>
-            <Link href="/ideas" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>ALL IDEAS →</Link>
-          </div>
+          <FadeUp delay={0.24} style={{ width: '100%' }}>
+            <div style={{ alignItems: 'center', borderBottomColor: '#D7D5C9', borderBottomStyle: 'solid', borderBottomWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingBottom: '15px', width: '100%' }}>
+              <span style={{ color: '#5E6157', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.1em', lineHeight: '16px' }}>SELECTED WRITING</span>
+              <Link href="/ideas" className="nav-link" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>ALL IDEAS →</Link>
+            </div>
+          </FadeUp>
 
           {/* 2026 */}
           <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '26px', width: '100%' }}>
-            <span style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 600, letterSpacing: '0.06em', lineHeight: '16px', paddingBottom: '6px' }}>2026</span>
-            {writing2026.map((a) => <ArticleRow key={a.slug} {...a} />)}
+            <FadeUp delay={0.29} style={{ paddingBottom: '6px' }}>
+              <span style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 600, letterSpacing: '0.06em', lineHeight: '16px' }}>2026</span>
+            </FadeUp>
+            {writing2026.map((a, i) => (
+              <FadeUp key={a.slug} delay={0.32 + i * 0.05} style={{ width: '100%' }}>
+                <ArticleRow {...a} />
+              </FadeUp>
+            ))}
           </div>
 
           {/* 2025 */}
           <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '26px', width: '100%' }}>
-            <span style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 600, letterSpacing: '0.06em', lineHeight: '16px', paddingBottom: '6px' }}>2025</span>
-            {writing2025.map((a) => <ArticleRow key={a.slug} {...a} />)}
+            <FadeUp delay={0.42} style={{ paddingBottom: '6px' }}>
+              <span style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 600, letterSpacing: '0.06em', lineHeight: '16px' }}>2025</span>
+            </FadeUp>
+            {writing2025.map((a, i) => (
+              <FadeUp key={a.slug} delay={0.45 + i * 0.05} style={{ width: '100%' }}>
+                <ArticleRow {...a} />
+              </FadeUp>
+            ))}
           </div>
         </div>
 
         {/* Footer */}
         <div style={{ borderTopColor: '#D7D5C9', borderTopStyle: 'solid', borderTopWidth: '1px', display: 'flex', flexDirection: 'column', gap: '15px', paddingTop: '24px', width: '100%' }}>
           <div style={{ alignItems: 'center', display: 'flex', gap: '18px' }}>
-            <a href="https://x.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
-            <a href="https://github.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>GITHUB ↗</a>
-            <a href="mailto:harrison@aarvo.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>EMAIL ↗</a>
+            <a href="https://x.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
+            <a href="https://github.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>GITHUB ↗</a>
+            <a href="mailto:harrison@aarvo.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>EMAIL ↗</a>
           </div>
           <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', letterSpacing: '0.04em', lineHeight: '16px' }}>© 2026 HARRISON · AARVO</span>
         </div>

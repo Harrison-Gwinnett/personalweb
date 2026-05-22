@@ -25,7 +25,49 @@ button {
   padding: 0;
 }
 
-/* Responsive toggle: show only the right layout per breakpoint */
+/* ─── Focus rings ────────────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #1f5a3d;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ─── Article row hover ──────────────────────────────────────── */
+.article-row {
+  transition: opacity 150ms ease;
+}
+.article-row:hover {
+  opacity: 0.7;
+}
+
+/* ─── Aarvo chip hover lift ──────────────────────────────────── */
+.aarvo-chip {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.aarvo-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(27, 28, 24, 0.1);
+}
+
+/* ─── Footer / social link nudge ────────────────────────────── */
+.footer-link {
+  display: inline-block;
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+.footer-link:hover {
+  transform: translateX(2px);
+}
+
+/* ─── Nav link hover ────────────────────────────────────────── */
+.nav-link {
+  transition: opacity 150ms ease;
+}
+.nav-link:hover {
+  opacity: 0.6;
+}
+
+/* ─── Responsive toggle ──────────────────────────────────────── */
 @media (min-width: 768px) {
   .mobile-only {
     display: none !important;
@@ -35,5 +77,16 @@ button {
 @media (max-width: 767px) {
   .desktop-only {
     display: none !important;
+  }
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

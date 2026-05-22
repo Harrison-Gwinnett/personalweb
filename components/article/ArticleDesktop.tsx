@@ -1,5 +1,7 @@
+'use client'
 import Link from 'next/link'
 import NavDesktop from '@/components/NavDesktop'
+import { FadeUp, FadeIn } from '@/components/motion/primitives'
 import type { Article } from '@/lib/articles'
 
 const GS = 'var(--font-geist-sans), system-ui, sans-serif'
@@ -49,25 +51,16 @@ function ArticleBody() {
 
 export default function ArticleDesktop({ article }: { article: Article }) {
   return (
-    <div
-      style={{
-        alignItems: 'center',
-        backgroundColor: '#F3F1E9',
-        display: 'flex',
-        flexDirection: 'column',
-        fontSize: '12px',
-        fontSynthesis: 'none',
-        lineHeight: '16px',
-        paddingBottom: '72px',
-        paddingTop: '56px',
-      }}
-    >
+    <div style={{ alignItems: 'center', backgroundColor: '#F3F1E9', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', paddingBottom: '72px', paddingTop: '56px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', width: '768px' }}>
-        <NavDesktop />
+
+        <FadeIn delay={0} style={{ width: '100%' }}>
+          <NavDesktop />
+        </FadeIn>
 
         {/* Article header */}
-        <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '92px', width: '100%' }}>
-          <Link href="/ideas" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>
+        <FadeUp delay={0.07} style={{ display: 'flex', flexDirection: 'column', paddingTop: '92px', width: '100%' }}>
+          <Link href="/ideas" className="nav-link" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>
             ← ALL IDEAS
           </Link>
           <div style={{ display: 'inline-block', paddingTop: '60px' }}>
@@ -85,9 +78,11 @@ export default function ArticleDesktop({ article }: { article: Article }) {
               {article.description}
             </p>
           </div>
-        </div>
+        </FadeUp>
 
-        <ArticleBody />
+        <FadeUp delay={0.18} style={{ width: '100%' }}>
+          <ArticleBody />
+        </FadeUp>
 
         {/* Post-article nav */}
         <div style={{ display: 'flex', flexDirection: 'column', paddingTop: '60px', width: '100%' }}>
@@ -95,7 +90,7 @@ export default function ArticleDesktop({ article }: { article: Article }) {
           <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between', paddingTop: '24px', width: '100%' }}>
             <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', letterSpacing: '0.06em', lineHeight: '16px' }}>WRITTEN BY HARRISON · AARVO</span>
             {article.nextSlug && (
-              <Link href={`/ideas/${article.nextSlug}`} style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>
+              <Link href={`/ideas/${article.nextSlug}`} className="nav-link" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>
                 NEXT — {article.nextTitle} →
               </Link>
             )}
@@ -106,9 +101,9 @@ export default function ArticleDesktop({ article }: { article: Article }) {
         <div style={{ alignItems: 'center', borderTopColor: '#D7D5C9', borderTopStyle: 'solid', borderTopWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingTop: '80px', width: '100%' }}>
           <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', letterSpacing: '0.04em', lineHeight: '16px' }}>© 2026 HARRISON · AARVO</span>
           <div style={{ alignItems: 'center', display: 'flex', gap: '22px' }}>
-            <a href="https://x.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
-            <a href="https://github.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>GITHUB ↗</a>
-            <a href="mailto:harrison@aarvo.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>EMAIL ↗</a>
+            <a href="https://x.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
+            <a href="https://github.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>GITHUB ↗</a>
+            <a href="mailto:harrison@aarvo.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>EMAIL ↗</a>
           </div>
         </div>
       </div>

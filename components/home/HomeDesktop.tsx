@@ -1,5 +1,7 @@
+'use client'
 import Link from 'next/link'
 import NavDesktop from '@/components/NavDesktop'
+import { FadeUp, FadeIn } from '@/components/motion/primitives'
 
 const GS = 'var(--font-geist-sans), system-ui, sans-serif'
 const GM = 'var(--font-geist-mono), system-ui, sans-serif'
@@ -19,6 +21,7 @@ function ArticleRow({ slug, title, dateShort, readTime }: { slug: string; title:
   return (
     <Link
       href={`/ideas/${slug}`}
+      className="article-row"
       style={{
         alignItems: 'flex-start',
         borderBottomColor: '#E2E0D5',
@@ -58,14 +61,21 @@ export default function HomeDesktop() {
       }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', width: '768px' }}>
-        <NavDesktop />
+
+        {/* Nav */}
+        <FadeIn delay={0} style={{ width: '100%' }}>
+          <NavDesktop />
+        </FadeIn>
 
         {/* Hero */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '26px', paddingTop: '104px', width: '100%' }}>
-          <div style={{ color: '#1B1C18', fontFamily: GS, fontSize: '31px', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: '44px', width: '660px' }}>
-            I care about the unglamorous distance between a product that merely works and one that feels inevitable.
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '600px' }}>
+          <FadeUp delay={0.07}>
+            <div style={{ color: '#1B1C18', fontFamily: GS, fontSize: '31px', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: '44px', width: '660px' }}>
+              I care about the unglamorous distance between a product that merely works and one that feels inevitable.
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.15} style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '600px' }}>
             <div style={{ alignItems: 'center', display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
               <span style={{ color: '#41443B', fontFamily: GS, fontSize: '18px', letterSpacing: '-0.005em', lineHeight: '28px' }}>
                 I'm Harrison, founder of
@@ -74,6 +84,7 @@ export default function HomeDesktop() {
                 href="https://aarvo.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="aarvo-chip"
                 style={{
                   alignItems: 'center',
                   backgroundColor: '#ECEAE1',
@@ -100,33 +111,43 @@ export default function HomeDesktop() {
             <div style={{ color: '#41443B', fontFamily: GS, fontSize: '18px', letterSpacing: '-0.005em', lineHeight: '31px' }}>
               I spend my days helping fast-moving teams ship software people actually love — and I write here about craft, clarity, and the narrow gap between good and great.
             </div>
-          </div>
+          </FadeUp>
         </div>
 
         {/* Writing index */}
         <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '84px', paddingTop: '92px', width: '100%' }}>
-          <div style={{ alignItems: 'center', borderBottomColor: '#D7D5C9', borderBottomStyle: 'solid', borderBottomWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingBottom: '18px', width: '100%' }}>
-            <span style={{ color: '#5E6157', fontFamily: GM, fontSize: '13px', fontWeight: 500, letterSpacing: '0.1em', lineHeight: '16px' }}>SELECTED WRITING</span>
-            <Link href="/ideas" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>ALL IDEAS →</Link>
-          </div>
+          <FadeUp delay={0.24} style={{ width: '100%' }}>
+            <div style={{ alignItems: 'center', borderBottomColor: '#D7D5C9', borderBottomStyle: 'solid', borderBottomWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingBottom: '18px', width: '100%' }}>
+              <span style={{ color: '#5E6157', fontFamily: GM, fontSize: '13px', fontWeight: 500, letterSpacing: '0.1em', lineHeight: '16px' }}>SELECTED WRITING</span>
+              <Link href="/ideas" className="nav-link" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>ALL IDEAS →</Link>
+            </div>
+          </FadeUp>
 
           {/* 2026 */}
           <div style={{ display: 'flex', paddingTop: '34px', width: '100%' }}>
-            <div style={{ flexShrink: 0, paddingTop: '20px', width: '120px' }}>
+            <FadeUp delay={0.29} style={{ flexShrink: 0, paddingTop: '20px', width: '120px' }}>
               <span style={{ color: '#1B1C18', fontFamily: GM, fontSize: '13px', fontWeight: 600, letterSpacing: '0.06em', lineHeight: '16px' }}>2026</span>
-            </div>
+            </FadeUp>
             <div style={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
-              {writing2026.map((a) => <ArticleRow key={a.slug} {...a} />)}
+              {writing2026.map((a, i) => (
+                <FadeUp key={a.slug} delay={0.32 + i * 0.05} style={{ width: '100%' }}>
+                  <ArticleRow {...a} />
+                </FadeUp>
+              ))}
             </div>
           </div>
 
           {/* 2025 */}
           <div style={{ display: 'flex', paddingTop: '34px', width: '100%' }}>
-            <div style={{ flexShrink: 0, paddingTop: '20px', width: '120px' }}>
+            <FadeUp delay={0.42} style={{ flexShrink: 0, paddingTop: '20px', width: '120px' }}>
               <span style={{ color: '#1B1C18', fontFamily: GM, fontSize: '13px', fontWeight: 600, letterSpacing: '0.06em', lineHeight: '16px' }}>2025</span>
-            </div>
+            </FadeUp>
             <div style={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
-              {writing2025.map((a) => <ArticleRow key={a.slug} {...a} />)}
+              {writing2025.map((a, i) => (
+                <FadeUp key={a.slug} delay={0.45 + i * 0.05} style={{ width: '100%' }}>
+                  <ArticleRow {...a} />
+                </FadeUp>
+              ))}
             </div>
           </div>
         </div>
@@ -135,9 +156,9 @@ export default function HomeDesktop() {
         <div style={{ alignItems: 'center', borderTopColor: '#D7D5C9', borderTopStyle: 'solid', borderTopWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingTop: '30px', width: '100%' }}>
           <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', letterSpacing: '0.04em', lineHeight: '16px' }}>© 2026 HARRISON · AARVO</span>
           <div style={{ alignItems: 'center', display: 'flex', gap: '22px' }}>
-            <a href="https://x.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
-            <a href="https://github.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>GITHUB ↗</a>
-            <a href="mailto:harrison@aarvo.com" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>EMAIL ↗</a>
+            <a href="https://x.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
+            <a href="https://github.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>GITHUB ↗</a>
+            <a href="mailto:harrison@aarvo.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>EMAIL ↗</a>
           </div>
         </div>
       </div>
