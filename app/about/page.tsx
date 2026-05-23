@@ -3,7 +3,7 @@ import AboutDesktop from '@/components/about/AboutDesktop'
 import AboutMobile from '@/components/about/AboutMobile'
 
 const description =
-  "Harrison Gwinnett is the founder of aarvo — software designed to modernise and provide everyone with the tools they need to scale their business from a monetary perspective. He's a serial entrepreneur with a background in digital assets, market making, and fintech."
+  "Harrison Gwinnett is the founder of aarvo, software designed to modernise and provide everyone with the tools they need to scale their business from a monetary perspective. He's a serial entrepreneur with a background in digital assets and fintech."
 
 export const metadata: Metadata = {
   title: 'About',
@@ -26,7 +26,7 @@ const faqJsonLd = {
       name: 'Who is Harrison Gwinnett?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Harrison Gwinnett is a founder and serial entrepreneur with a background in digital assets, market making, and fintech. He is the founder of aarvo, a software platform designed to modernise how businesses understand and scale their finances.',
+        text: 'Harrison Gwinnett is a founder and serial entrepreneur with a background in digital assets and fintech. He is the founder of aarvo, a software platform designed to modernise how businesses understand and scale their finances.',
       },
     },
     {
