@@ -35,6 +35,7 @@ const jsonLd = {
       'https://www.linkedin.com/in/harrisongwinnett/',
       'https://x.com/aarvoceo',
       'https://www.crunchbase.com/person/harrison-gwinnett',
+      'https://www.tge.ventures/',
       'https://www.forbes.com/sites/trevorclawson/2023/04/22/from-watches-to-avatars-building-a-web3-company-from-the-ground-up/',
     ],
   },
