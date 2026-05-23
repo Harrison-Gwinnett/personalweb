@@ -45,8 +45,8 @@ function ArticleRow({ slug, title, meta }: { slug: string; title: string; meta: 
 
 export default function HomeMobile() {
   return (
-    <div style={{ backgroundColor: '#F3F1E9', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', width: '100%' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '44px', paddingLeft: '24px', paddingRight: '24px', paddingTop: '16px', width: '100%' }}>
+    <div style={{ backgroundColor: '#F3F1E9', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', minHeight: '100dvh', width: '100%' }}>
+      <div style={{ display: 'flex', flex: 1, flexDirection: 'column', paddingBottom: '44px', paddingLeft: '24px', paddingRight: '24px', paddingTop: '16px', width: '100%' }}>
 
         {/* Nav */}
         <FadeIn delay={0} style={{ width: '100%' }}>
@@ -57,7 +57,7 @@ export default function HomeMobile() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '54px', width: '100%' }}>
           <FadeUp delay={0.07}>
             <div style={{ color: '#1B1C18', fontFamily: GS, fontSize: '24px', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: '33px', width: '100%' }}>
-              I care about the unglamorous distance between a product that merely works and one that feels inevitable.
+              I find problems I can't ignore and build companies around them.
             </div>
           </FadeUp>
 
@@ -97,12 +97,13 @@ export default function HomeMobile() {
               </a>
             </div>
             <div style={{ color: '#41443B', fontFamily: GS, fontSize: '16px', letterSpacing: '-0.005em', lineHeight: '26px' }}>
-              I spend my days helping fast-moving teams ship software people actually love — and I write here about craft, clarity, and the narrow gap between good and great.
+              Every business I've built had the same problem: never knowing where to spend less, how to earn more, or what to do next. Businesses are built to profit it's surprising how few actually know their numbers, and how far ahead you'd be if you did.
             </div>
           </FadeUp>
         </div>
 
         {/* Writing index */}
+        {false && (
         <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: '46px', paddingTop: '62px', width: '100%' }}>
           <FadeUp delay={0.24} style={{ width: '100%' }}>
             <div style={{ alignItems: 'center', borderBottomColor: '#D7D5C9', borderBottomStyle: 'solid', borderBottomWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingBottom: '15px', width: '100%' }}>
@@ -135,14 +136,13 @@ export default function HomeMobile() {
             ))}
           </div>
         </div>
+        )}
+
+        <div style={{ flex: 1 }} />
 
         {/* Footer */}
         <div style={{ borderTopColor: '#D7D5C9', borderTopStyle: 'solid', borderTopWidth: '1px', display: 'flex', flexDirection: 'column', gap: '15px', paddingTop: '24px', width: '100%' }}>
-          <div style={{ alignItems: 'center', display: 'flex', gap: '18px' }}>
-            <a href="https://x.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
-            <a href="https://github.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>GITHUB ↗</a>
-            <a href="mailto:harrison@aarvo.com" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>EMAIL ↗</a>
-          </div>
+          <a href="https://x.com/aarvoceo" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>X ↗</a>
           <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', letterSpacing: '0.04em', lineHeight: '16px' }}>© 2026 HARRISON · AARVO</span>
         </div>
       </div>

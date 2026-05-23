@@ -10,7 +10,6 @@ const GM = 'var(--font-geist-mono), system-ui, sans-serif'
 const NAV_ITEMS = [
   { href: '/', label: 'Home', num: '01' },
   { href: '/about', label: 'About', num: '02' },
-  { href: '/ideas', label: 'Ideas', num: '03' },
 ]
 
 export default function MobileNav() {
@@ -163,17 +162,9 @@ export default function MobileNav() {
               <span style={{ color: '#8A8C7F', fontFamily: GM, fontSize: '11px', letterSpacing: '0.04em', lineHeight: '14px' }}>
                 © 2026 HARRISON · AARVO
               </span>
-              <div style={{ display: 'flex', gap: '20px' }}>
-                {[
-                  { label: 'X ↗', href: 'https://x.com' },
-                  { label: 'GITHUB ↗', href: 'https://github.com' },
-                  { label: 'EMAIL ↗', href: 'mailto:harrison@aarvo.com' },
-                ].map(({ label, href }) => (
-                  <a key={label} href={href} className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '11px', letterSpacing: '0.04em', lineHeight: '14px' }}>
-                    {label}
-                  </a>
-                ))}
-              </div>
+              <a href="https://x.com/aarvoceo" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '11px', letterSpacing: '0.04em', lineHeight: '14px' }}>
+                X ↗
+              </a>
             </motion.div>
           </motion.div>
         )}

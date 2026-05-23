@@ -35,7 +35,6 @@ export default function NavDesktop() {
         {[
           { href: '/', label: 'HOME' },
           { href: '/about', label: 'ABOUT' },
-          { href: '/ideas', label: 'IDEAS' },
         ].map(({ href, label }) => (
           <Link
             key={href}
