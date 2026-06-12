@@ -162,7 +162,7 @@ export default function MobileNav() {
               <span style={{ color: '#8A8C7F', fontFamily: GM, fontSize: '11px', letterSpacing: '0.04em', lineHeight: '14px' }}>
                 © 2026 HARRISON · AARVO
               </span>
-              <a href="https://x.com/aarvoceo" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '11px', letterSpacing: '0.04em', lineHeight: '14px' }}>
+              <a href="https://x.com/HGGwinnett" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '11px', letterSpacing: '0.04em', lineHeight: '14px' }}>
                 X ↗
               </a>
             </motion.div>

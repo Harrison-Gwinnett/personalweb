@@ -14,7 +14,7 @@ const jsonLd = {
     '@id': 'https://harrisongwinnett.com/#person',
     name: 'Harrison Gwinnett',
     url: 'https://harrisongwinnett.com',
-    jobTitle: 'Founder',
+    jobTitle: 'Founder & CEO',
     worksFor: {
       '@type': 'Organization',
       name: 'aarvo',
@@ -32,10 +32,10 @@ const jsonLd = {
       'Software',
     ],
     sameAs: [
+      'https://www.wikidata.org/wiki/Q140185272',
       'https://www.linkedin.com/in/harrisongwinnett/',
-      'https://x.com/aarvoceo',
+      'https://x.com/HGGwinnett',
       'https://www.crunchbase.com/person/harrison-gwinnett',
-      'https://www.tge.ventures/',
       'https://www.forbes.com/sites/trevorclawson/2023/04/22/from-watches-to-avatars-building-a-web3-company-from-the-ground-up/',
     ],
   },

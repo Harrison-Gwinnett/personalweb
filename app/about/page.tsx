@@ -58,7 +58,7 @@ const faqJsonLd = {
       name: 'Where can I follow Harrison Gwinnett?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Harrison Gwinnett is on X (Twitter) at @aarvoceo. His personal website is harrisongwinnett.com.',
+        text: 'Harrison Gwinnett is on X (Twitter) at @HGGwinnett. His personal website is harrisongwinnett.com.',
       },
     },
   ],

@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@aarvoceo',
-    creator: '@aarvoceo',
+    site: '@HGGwinnett',
+    creator: '@HGGwinnett',
     title: 'Harrison Gwinnett',
     description,
   },
