@@ -57,7 +57,7 @@ function RoleLogo({ role }: { role: HistoryRole }) {
 
 function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
   return (
-    <FadeUp delay={delay} style={{ borderTopColor: '#D7D5C9', borderTopStyle: 'solid', borderTopWidth: '1px', display: 'flex', gap: '20px', paddingTop: '36px', width: '100%' }}>
+    <FadeUp delay={delay} style={{ borderTopColor: '#D7D5C9', borderTopStyle: 'solid', borderTopWidth: '1px', display: 'flex', gap: '20px', paddingBottom: '36px', paddingTop: '36px', width: '100%' }}>
       <RoleLogo role={role} />
       <div style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: '14px', minWidth: 0 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -134,7 +134,7 @@ export default function HistoryDesktop() {
           </FadeUp>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
           {historyRoles.map((role, i) => (
             <RoleBlock key={role.id} role={role} delay={0.22 + i * 0.06} />
           ))}
