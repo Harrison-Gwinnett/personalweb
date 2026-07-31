@@ -30,18 +30,20 @@ export default function AboutMobile() {
             <span style={{ color: '#5E6157', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.1em', lineHeight: '16px' }}>ABOUT</span>
           </FadeUp>
           <FadeUp delay={0.13}>
-            <div style={{ color: '#1B1C18', fontFamily: GS, fontSize: '24px', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: '33px', width: '100%' }}>
+            <div style={{ color: '#1B1C18', fontFamily: GS, fontSize: '24px', fontWeight: 300, letterSpacing: '-0.02em', lineHeight: '33px', textWrap: 'balance', width: '100%' }}>
               I'm Harrison Gwinnett.
             </div>
           </FadeUp>
         </div>
 
         {/* Bio */}
-        <FadeUp delay={0.22} style={{ display: 'flex', flexDirection: 'column', gap: '19px', paddingTop: '40px', width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '19px', paddingTop: '40px', width: '100%' }}>
           {bio.map((p, i) => (
-            <div key={i} style={{ color: '#41443B', fontFamily: GS, fontSize: '16px', letterSpacing: '-0.005em', lineHeight: '26px', width: '100%' }}>{p}</div>
+            <FadeUp key={i} delay={0.22 + i * 0.07}>
+              <div style={{ color: '#41443B', fontFamily: GS, fontSize: '16px', letterSpacing: '-0.005em', lineHeight: '26px', width: '100%' }}>{p}</div>
+            </FadeUp>
           ))}
-        </FadeUp>
+        </div>
 
         <div style={{ flex: 1, minHeight: '60px' }} />
 

@@ -21,6 +21,7 @@ export default function NavDesktop() {
     >
       <Link
         href="/"
+        className="nav-link"
         style={{
           color: '#1B1C18',
           fontFamily: GM,
