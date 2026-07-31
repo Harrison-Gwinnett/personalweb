@@ -13,7 +13,6 @@ export interface HistoryRole {
   paragraphs?: string[]
   bullets?: string[]
   closing?: string
-  link?: { href: string; label: string; sublabel?: string }
 }
 
 export const historyRoles: HistoryRole[] = [
@@ -34,11 +33,6 @@ export const historyRoles: HistoryRole[] = [
       "That's why aarvo exists.",
       "It makes your life (and your accountant's life) easier by simplifying the boring stuff… but more importantly, it helps businesses actually understand their numbers… what's healthy, what's not, what's profitable, what's wasting money and with intelligence tells you how to grow it.",
     ],
-    link: {
-      href: 'https://aarvo.com',
-      label: 'Inside aarvo',
-      sublabel: 'Behind the scenes',
-    },
   },
   {
     id: 'digital-asset-institute',
@@ -50,6 +44,7 @@ export const historyRoles: HistoryRole[] = [
     endDate: '2025-09',
     location: 'Zug, Switzerland',
     logoLabel: 'D',
+    logoSrc: '/history/digital-asset-institute.jpg',
     summary:
       'TGE Ventures re-purposed its mission to support the mainstream adoption of Digital Assets through the launch of its new sub brand, Digital Asset Institute. An educational product around the hands-on learnings of launching crypto-currencies and blockchain products targeted at the teams of Consulting Firms, Banks, Asset Managers, Fund Managers, Law Firms and Educational Institutions.',
   },
@@ -63,6 +58,7 @@ export const historyRoles: HistoryRole[] = [
     endDate: '2025-09',
     location: 'Zug, Switzerland',
     logoLabel: 'T',
+    logoSrc: '/history/tge-ventures.jpg',
     summary: 'A Blockchain focused incubation firm, advising and investing in blockchain companies.',
     bullets: [
       'Invested & acquired early stage blockchain companies.',
@@ -83,6 +79,7 @@ export const historyRoles: HistoryRole[] = [
     endDate: '2024-01',
     location: 'Greater London, England, United Kingdom',
     logoLabel: 'V',
+    logoSrc: '/history/virtual-versions.jpg',
     summary:
       'A Web3-native social identity platform aiming to reshape online reputation, ownership, and social interaction through decentralisation.',
     bullets: [
@@ -102,6 +99,7 @@ export const historyRoles: HistoryRole[] = [
     endDate: '2020-10',
     location: 'Greater London, England, United Kingdom',
     logoLabel: 'W',
+    logoSrc: '/history/watchlotto.jpg',
     summary:
       'Watchlotto was founded in 2016 with the vision of giving people the opportunity to win luxury watches using a game of skill concept.',
     bullets: [

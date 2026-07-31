@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'profile',
     url: 'https://harrisongwinnett.com/about',
-    title: 'About — Harrison Gwinnett',
+    title: 'About - Harrison Gwinnett',
     description,
   },
 }
@@ -50,7 +50,7 @@ const faqJsonLd = {
       name: 'What does Harrison Gwinnett write about?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Harrison Gwinnett writes about building companies, craft, hiring, and software — publishing essays at harrisongwinnett.com.',
+        text: 'Harrison Gwinnett writes about building companies, craft, hiring, and software, publishing essays at harrisongwinnett.com.',
       },
     },
     {

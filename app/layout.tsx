@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: 'Harrison Gwinnett',
-    template: '%s — Harrison Gwinnett',
+    template: '%s - Harrison Gwinnett',
   },
   description,
   authors: [{ name: 'Harrison Gwinnett', url: baseUrl }],

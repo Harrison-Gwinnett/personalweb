@@ -79,21 +79,21 @@ function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
       </div>
 
       {role.summary && (
-        <p style={{ color: '#41443B', fontFamily: GS, fontSize: '15px', letterSpacing: '-0.005em', lineHeight: '25px', margin: 0 }}>
+        <p style={{ color: '#41443B', fontFamily: GS, fontSize: '14px', letterSpacing: '-0.003em', lineHeight: '23px', margin: 0 }}>
           {role.summary}
         </p>
       )}
 
       {role.paragraphs?.map((p) => (
-        <p key={p.slice(0, 24)} style={{ color: '#41443B', fontFamily: GS, fontSize: '15px', letterSpacing: '-0.005em', lineHeight: '25px', margin: 0 }}>
+        <p key={p.slice(0, 24)} style={{ color: '#41443B', fontFamily: GS, fontSize: '14px', letterSpacing: '-0.003em', lineHeight: '23px', margin: 0 }}>
           {p}
         </p>
       ))}
 
       {role.bullets && role.bullets.length > 0 && (
-        <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px', listStyle: 'none', margin: 0, padding: 0 }}>
+        <ul style={{ display: 'flex', flexDirection: 'column', gap: '7px', listStyle: 'none', margin: 0, padding: 0 }}>
           {role.bullets.map((item) => (
-            <li key={item} style={{ color: '#41443B', display: 'flex', fontFamily: GS, fontSize: '15px', gap: '10px', letterSpacing: '-0.005em', lineHeight: '25px' }}>
+            <li key={item} style={{ color: '#41443B', display: 'flex', fontFamily: GS, fontSize: '14px', gap: '10px', letterSpacing: '-0.003em', lineHeight: '23px' }}>
               <span aria-hidden="true" style={{ color: '#8A8C7F', flexShrink: 0 }}>→</span>
               <span>{item}</span>
             </li>
@@ -102,40 +102,9 @@ function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
       )}
 
       {role.closing && (
-        <p style={{ color: '#5E6157', fontFamily: GS, fontSize: '14px', fontStyle: 'italic', letterSpacing: '-0.005em', lineHeight: '22px', margin: 0 }}>
+        <p style={{ color: '#5E6157', fontFamily: GS, fontSize: '13px', fontStyle: 'italic', letterSpacing: '-0.003em', lineHeight: '21px', margin: 0 }}>
           {role.closing}
         </p>
-      )}
-
-      {role.link && (
-        <a
-          href={role.link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="footer-link"
-          style={{
-            alignItems: 'center',
-            alignSelf: 'flex-start',
-            backgroundColor: '#ECEAE1',
-            borderColor: '#CCCAB8',
-            borderRadius: '8px',
-            borderStyle: 'solid',
-            borderWidth: '1px',
-            color: '#1B1C18',
-            display: 'inline-flex',
-            fontFamily: GS,
-            gap: '12px',
-            padding: '10px 14px',
-          }}
-        >
-          <span style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '11px', fontWeight: 600, letterSpacing: '0.06em' }}>↗</span>
-          <span style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-            <span style={{ fontSize: '14px', fontWeight: 600, lineHeight: '18px' }}>{role.link.label}</span>
-            {role.link.sublabel && (
-              <span style={{ color: '#76786C', fontSize: '12px', lineHeight: '16px' }}>{role.link.sublabel}</span>
-            )}
-          </span>
-        </a>
       )}
     </FadeUp>
   )
@@ -159,8 +128,8 @@ export default function HistoryMobile() {
             </div>
           </FadeUp>
           <FadeUp delay={0.18}>
-            <p style={{ color: '#41443B', fontFamily: GS, fontSize: '16px', letterSpacing: '-0.005em', lineHeight: '26px', margin: 0 }}>
-              A chronological record of founding roles, exits, and ventures — from Watchlotto through aarvo.
+            <p style={{ color: '#41443B', fontFamily: GS, fontSize: '15px', letterSpacing: '-0.003em', lineHeight: '24px', margin: 0 }}>
+              A chronological record of founding roles, exits, and ventures.
             </p>
           </FadeUp>
         </div>

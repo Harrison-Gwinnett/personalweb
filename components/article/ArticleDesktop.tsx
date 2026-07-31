@@ -14,7 +14,7 @@ function ArticleBody() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', paddingTop: '54px', width: '100%' }}>
       {[
         'Every product accumulates a quiet debt. Not the technical kind that shows up in a backlog, but something softer and harder to name: the things that are almost right. The button sitting two pixels low. The empty state nobody bothered to write. The error message that technically tells the truth and helps no one.',
-        'Individually, none of these is worth stopping for — and that is exactly what makes them dangerous. Each one is small enough to wave past, there are thousands of them, and together they are the whole difference between software that feels cheap and software that feels considered.',
+        'Individually, none of these is worth stopping for, and that is exactly what makes them dangerous. Each one is small enough to wave past, there are thousands of them, and together they are the whole difference between software that feels cheap and software that feels considered.',
       ].map((p, i) => (
         <div key={i} style={{ color: '#33352E', fontFamily: GS, fontSize: '19px', letterSpacing: '-0.01em', lineHeight: '32px', width: '600px' }}>
           {p}
@@ -27,7 +27,7 @@ function ArticleBody() {
       </div>
 
       <div style={{ color: '#33352E', fontFamily: GS, fontSize: '19px', letterSpacing: '-0.01em', lineHeight: '32px', width: '600px' }}>
-        The cost was never the fix. The cost is that almost-right quietly teaches everyone around it that almost-right is acceptable. The next person sees the two-pixel gap and matches it. The one after that rounds down a little further. Standards don't collapse in a meeting — they erode one reasonable compromise at a time.
+        The cost was never the fix. The cost is that almost-right quietly teaches everyone around it that almost-right is acceptable. The next person sees the two-pixel gap and matches it. The one after that rounds down a little further. Standards don't collapse in a meeting. They erode one reasonable compromise at a time.
       </div>
 
       {/* Pull quote */}
@@ -39,7 +39,7 @@ function ArticleBody() {
 
       {[
         'The teams that make things people love are not smarter about the big decisions. They are simply unwilling to live with the small wrong ones. They treat "good enough for now" as a loan with interest, and they pay it down while it is still cheap.',
-        'So the discipline is unglamorous: notice the almost-right thing, and fix it before it quietly becomes the baseline. Not all of it, and not at once — but enough, and often enough, that the people around you learn what the bar actually is by watching where you refuse to drop it.',
+        'So the discipline is unglamorous: notice the almost-right thing, and fix it before it quietly becomes the baseline. Not all of it, and not at once, but enough, and often enough, that the people around you learn what the bar actually is by watching where you refuse to drop it.',
       ].map((p, i) => (
         <div key={i} style={{ color: '#33352E', fontFamily: GS, fontSize: '19px', letterSpacing: '-0.01em', lineHeight: '32px', width: i === 0 ? '644px' : '600px' }}>
           {p}
@@ -91,7 +91,7 @@ export default function ArticleDesktop({ article }: { article: Article }) {
             <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', letterSpacing: '0.06em', lineHeight: '16px' }}>WRITTEN BY HARRISON · AARVO</span>
             {article.nextSlug && (
               <Link href={`/ideas/${article.nextSlug}`} className="nav-link" style={{ color: '#1F5A3D', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>
-                NEXT — {article.nextTitle} →
+                NEXT: {article.nextTitle} →
               </Link>
             )}
           </div>

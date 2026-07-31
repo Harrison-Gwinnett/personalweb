@@ -25,7 +25,7 @@ export default function IdeasMobile() {
           </FadeUp>
           <FadeUp delay={0.13}>
             <div style={{ color: '#1B1C18', fontFamily: GS, fontSize: '24px', letterSpacing: '-0.02em', lineHeight: '33px', width: '100%' }}>
-              Everything I've written — on craft, clarity, and the slow work of making software good.
+              Everything I've written on craft, clarity, and the slow work of making software good.
             </div>
           </FadeUp>
         </div>
@@ -35,7 +35,7 @@ export default function IdeasMobile() {
           <FadeUp delay={0.24} style={{ width: '100%' }}>
             <div style={{ alignItems: 'center', borderBottomColor: '#D7D5C9', borderBottomStyle: 'solid', borderBottomWidth: '1px', display: 'flex', justifyContent: 'space-between', paddingBottom: '15px', width: '100%' }}>
               <span style={{ color: '#5E6157', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.1em', lineHeight: '16px' }}>THE ARCHIVE</span>
-              <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>2024 — 2026</span>
+              <span style={{ color: '#76786C', fontFamily: GM, fontSize: '12px', fontWeight: 500, letterSpacing: '0.04em', lineHeight: '16px' }}>2024 - 2026</span>
             </div>
           </FadeUp>
 

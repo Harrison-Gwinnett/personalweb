@@ -4,7 +4,7 @@ import HistoryMobile from '@/components/history/HistoryMobile'
 import { historyRoles } from '@/lib/history'
 
 const description =
-  'Experience and founding history of Harrison Gwinnett — Watchlotto, Virtual Versions, TGE Ventures, Digital Asset Institute, and aarvo.'
+  'Experience and founding history of Harrison Gwinnett: Watchlotto, Virtual Versions, TGE Ventures, Digital Asset Institute, and aarvo.'
 
 export const metadata: Metadata = {
   title: 'History',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'profile',
     url: 'https://harrisongwinnett.com/history',
-    title: 'History — Harrison Gwinnett',
+    title: 'History - Harrison Gwinnett',
     description,
   },
 }
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
-  name: 'History — Harrison Gwinnett',
+  name: 'History - Harrison Gwinnett',
   url: 'https://harrisongwinnett.com/history',
   mainEntity: {
     '@type': 'Person',
@@ -43,7 +43,7 @@ const jsonLd = {
         hiringOrganization: {
           '@type': 'Organization',
           name: role.company,
-          ...(role.link?.href ? { url: role.link.href } : {}),
+          ...(role.id === 'aarvo' ? { url: 'https://aarvo.com' } : {}),
         },
       }
       if (role.endDate) occupation.endDate = role.endDate

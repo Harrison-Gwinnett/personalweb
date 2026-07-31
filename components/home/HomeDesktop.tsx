@@ -113,7 +113,7 @@ export default function HomeDesktop() {
               </a>
             </div>
             <div style={{ color: '#41443B', fontFamily: GS, fontSize: '18px', letterSpacing: '-0.005em', lineHeight: '31px' }}>
-              Every business I've built had the same problem: never knowing where to spend less, how to earn more, or what to do next. Businesses are built to profit — it's surprising how few actually know their numbers, and how far ahead you'd be if you did.
+              Every business I've built had the same problem: never knowing where to spend less, how to earn more, or what to do next. Businesses are built to profit. It's surprising how few actually know their numbers, and how far ahead you'd be if you did.
             </div>
           </FadeUp>
         </div>
