@@ -10,6 +10,7 @@ const GM = 'var(--font-geist-mono), system-ui, sans-serif'
 const NAV_ITEMS = [
   { href: '/', label: 'Home', num: '01' },
   { href: '/about', label: 'About', num: '02' },
+  { href: '/history', label: 'History', num: '03' },
 ]
 
 export default function MobileNav() {

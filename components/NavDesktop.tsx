@@ -35,10 +35,12 @@ export default function NavDesktop() {
         {[
           { href: '/', label: 'HOME' },
           { href: '/about', label: 'ABOUT' },
+          { href: '/history', label: 'HISTORY' },
         ].map(({ href, label }) => (
           <Link
             key={href}
             href={href}
+            className="nav-link"
             style={{
               color: active(href) ? '#1B1C18' : '#6B6E63',
               fontFamily: GM,
