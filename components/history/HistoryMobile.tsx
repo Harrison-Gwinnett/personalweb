@@ -1,6 +1,7 @@
 'use client'
 import MobileNav from '@/components/MobileNav'
 import { FadeUp, FadeIn } from '@/components/motion/primitives'
+import HighlightedText from '@/components/history/HighlightedText'
 import { historyRoles, type HistoryRole } from '@/lib/history'
 import { socialLinks } from '@/lib/social'
 
@@ -80,13 +81,13 @@ function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
 
       {role.summary && (
         <p style={{ color: '#41443B', fontFamily: GS, fontSize: '14px', letterSpacing: '-0.003em', lineHeight: '23px', margin: 0 }}>
-          {role.summary}
+          <HighlightedText>{role.summary}</HighlightedText>
         </p>
       )}
 
       {role.paragraphs?.map((p) => (
         <p key={p.slice(0, 24)} style={{ color: '#41443B', fontFamily: GS, fontSize: '14px', letterSpacing: '-0.003em', lineHeight: '23px', margin: 0 }}>
-          {p}
+          <HighlightedText>{p}</HighlightedText>
         </p>
       ))}
 
@@ -95,7 +96,7 @@ function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
           {role.bullets.map((item) => (
             <li key={item} style={{ color: '#41443B', display: 'flex', fontFamily: GS, fontSize: '14px', gap: '10px', letterSpacing: '-0.003em', lineHeight: '23px' }}>
               <span aria-hidden="true" style={{ color: '#8A8C7F', flexShrink: 0 }}>→</span>
-              <span>{item}</span>
+              <span><HighlightedText>{item}</HighlightedText></span>
             </li>
           ))}
         </ul>
@@ -103,7 +104,7 @@ function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
 
       {role.closing && (
         <p style={{ color: '#5E6157', fontFamily: GS, fontSize: '13px', fontStyle: 'italic', letterSpacing: '-0.003em', lineHeight: '21px', margin: 0 }}>
-          {role.closing}
+          <HighlightedText>{role.closing}</HighlightedText>
         </p>
       )}
     </FadeUp>
