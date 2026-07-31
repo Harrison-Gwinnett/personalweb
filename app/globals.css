@@ -35,19 +35,27 @@ button:focus-visible {
 
 /* ─── Article row hover ──────────────────────────────────────── */
 .article-row {
-  transition: opacity 150ms ease;
+  transition: opacity 150ms ease, transform 150ms ease;
 }
 .article-row:hover {
   opacity: 0.7;
 }
+.article-row:active {
+  transform: scale(0.96);
+}
 
 /* ─── Aarvo chip hover lift ──────────────────────────────────── */
 .aarvo-chip {
+  color: #8a8c7f;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 .aarvo-chip:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(27, 28, 24, 0.1);
+}
+.aarvo-chip:active {
+  transform: scale(0.96);
+  box-shadow: none;
 }
 
 /* ─── Footer / social link nudge ────────────────────────────── */
@@ -58,13 +66,26 @@ button:focus-visible {
 .footer-link:hover {
   transform: translateX(2px);
 }
+.footer-link:active {
+  transform: scale(0.96);
+}
 
 /* ─── Nav link hover ────────────────────────────────────────── */
 .nav-link {
-  transition: opacity 150ms ease;
+  transition: opacity 150ms ease, transform 150ms ease;
 }
 .nav-link:hover {
   opacity: 0.6;
+}
+.nav-link:active {
+  transform: scale(0.96);
+}
+
+.pressable {
+  transition: transform 150ms ease;
+}
+.pressable:active {
+  transform: scale(0.96);
 }
 
 /* ─── Responsive toggle ──────────────────────────────────────── */

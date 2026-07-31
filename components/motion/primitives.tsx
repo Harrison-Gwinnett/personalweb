@@ -2,7 +2,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import type { CSSProperties, ReactNode } from 'react'
 
-// Expo-out easing — snappy entry, long graceful tail
+// Expo-out easing: snappy entry, long graceful tail
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 interface AnimProps {
@@ -13,7 +13,7 @@ interface AnimProps {
 }
 
 /**
- * FadeUp — fade in with upward slide.
+ * FadeUp: fade in with upward slide.
  * In reduced-motion mode: instant render (no opacity fade, no movement).
  */
 export function FadeUp({ children, delay = 0, style, className }: AnimProps) {
@@ -41,7 +41,7 @@ export function FadeUp({ children, delay = 0, style, className }: AnimProps) {
 }
 
 /**
- * FadeIn — opacity only (no y movement).
+ * FadeIn: opacity only (no y movement).
  * Used for nav and elements that shouldn't drift in from below.
  * In reduced-motion mode: instant render.
  */
