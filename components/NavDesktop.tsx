@@ -35,7 +35,6 @@ export default function NavDesktop() {
       <div style={{ alignItems: 'center', display: 'flex', gap: '30px' }}>
         {[
           { href: '/', label: 'HOME' },
-          { href: '/about', label: 'ABOUT' },
           { href: '/history', label: 'HISTORY' },
         ].map(({ href, label }) => (
           <Link

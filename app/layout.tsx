@@ -2,9 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
-
-const baseUrl = 'https://harrisongwinnett.com'
-const description = 'Founder of aarvo. Building software to modernise how every business understands their finances.'
+import { baseUrl, siteDescription as description } from '@/lib/schema'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

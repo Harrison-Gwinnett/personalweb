@@ -9,8 +9,7 @@ const GM = 'var(--font-geist-mono), system-ui, sans-serif'
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home', num: '01' },
-  { href: '/about', label: 'About', num: '02' },
-  { href: '/history', label: 'History', num: '03' },
+  { href: '/history', label: 'History', num: '02' },
 ]
 
 export default function MobileNav() {
@@ -164,7 +163,7 @@ export default function MobileNav() {
               style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between', paddingBottom: '40px', paddingLeft: '24px', paddingRight: '24px' }}
             >
               <span style={{ color: '#8A8C7F', fontFamily: GM, fontSize: '11px', letterSpacing: '0.04em', lineHeight: '14px' }}>
-                © 2026 HARRISON · AARVO
+                © 2026 HARRISON GWINNETT
               </span>
               <a href="https://x.com/HGGwinnett" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ color: '#1B1C18', fontFamily: GM, fontSize: '11px', letterSpacing: '0.04em', lineHeight: '14px' }}>
                 X ↗
