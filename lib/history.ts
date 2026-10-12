@@ -2,6 +2,9 @@ export interface HistoryRole {
   id: string
   title: string
   company: string
+  url?: string // official company site
+  archiveUrl?: string // my own archive page about it, when the official domain isn't mine
+  parentId?: string
   employmentType: string
   dateLabel: string
   startDate: string
@@ -17,9 +20,25 @@ export interface HistoryRole {
 
 export const historyRoles: HistoryRole[] = [
   {
+    id: 'tradrs',
+    title: 'Founder',
+    company: 'tradrs.tv',
+    url: 'https://tradrs.tv',
+    employmentType: 'Full-time',
+    dateLabel: 'Jan 2026 – Present',
+    startDate: '2026-01',
+    endDate: null,
+    location: null,
+    logoLabel: 't',
+    logoSrc: '/history/tradrs-tv.png',
+    summary:
+      'A finance streaming platform built for how the modern world trades, with a distribution network reaching over 6 million retail traders across crypto, FX, CFDs, prediction markets and more.',
+  },
+  {
     id: 'aarvo',
     title: 'Founder',
     company: 'aarvo',
+    url: 'https://aarvo.com',
     employmentType: 'Full-time',
     dateLabel: 'Oct 2025 – Present',
     startDate: '2025-10',
@@ -38,6 +57,7 @@ export const historyRoles: HistoryRole[] = [
     id: 'digital-asset-institute',
     title: 'Co-Founder',
     company: 'Digital Asset Institute',
+    parentId: 'tge-ventures',
     employmentType: 'Full-time',
     dateLabel: 'Jun 2025 – Sep 2025 · 4 mos',
     startDate: '2025-06',
@@ -52,6 +72,8 @@ export const historyRoles: HistoryRole[] = [
     id: 'tge-ventures',
     title: 'Co-Founder & CMO',
     company: 'TGE Ventures',
+    url: 'https://tge.ventures',
+    archiveUrl: 'https://tge-ventures.com',
     employmentType: 'Full-time',
     dateLabel: 'Jun 2023 – Sep 2025 · 2 yrs 4 mos',
     startDate: '2023-06',
@@ -93,6 +115,7 @@ export const historyRoles: HistoryRole[] = [
     id: 'watchlotto',
     title: 'Founder (Exited)',
     company: 'Watchlotto limited',
+    url: 'https://watchlotto.com',
     employmentType: 'Full-time',
     dateLabel: 'Jun 2016 – Oct 2020 · 4 yrs 5 mos',
     startDate: '2016-06',

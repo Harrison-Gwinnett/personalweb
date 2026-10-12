@@ -3,8 +3,9 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      { source: '/ideas', destination: '/', permanent: false },
-      { source: '/ideas/:path*', destination: '/', permanent: false },
+      { source: '/about', destination: '/', permanent: true },
+      { source: '/ideas', destination: '/', permanent: true },
+      { source: '/ideas/:path*', destination: '/', permanent: true },
     ]
   },
 }
