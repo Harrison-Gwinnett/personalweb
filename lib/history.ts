@@ -116,6 +116,7 @@ export const historyRoles: HistoryRole[] = [
     title: 'Founder (Exited)',
     company: 'Watchlotto limited',
     url: 'https://watchlotto.com',
+    archiveUrl: 'https://watchlotto.co/',
     employmentType: 'Full-time',
     dateLabel: 'Jun 2016 – Oct 2020 · 4 yrs 5 mos',
     startDate: '2016-06',

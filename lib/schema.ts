@@ -16,7 +16,21 @@ const organizations = historyRoles.map((role) => ({
   '@id': orgId(role.id),
   name: role.company,
   ...(role.url ? { url: role.url } : {}),
-  ...(role.archiveUrl ? { sameAs: [role.archiveUrl] } : {}),
+  ...(role.id === 'watchlotto'
+    ? {
+        sameAs: ['https://www.wikidata.org/wiki/Q141708604'],
+        ...(role.archiveUrl
+          ? {
+              subjectOf: {
+                '@type': 'CollectionPage',
+                '@id': `${role.archiveUrl}#page`,
+                url: role.archiveUrl,
+                about: { '@id': orgId(role.id) },
+              },
+            }
+          : {}),
+      }
+    : role.archiveUrl ? { sameAs: [role.archiveUrl] } : {}),
   foundingDate: role.startDate,
   founder: { '@id': personId },
   description: role.summary ?? role.paragraphs?.[0],

@@ -12,7 +12,7 @@ function RoleLogo({ role }: { role: HistoryRole }) {
 }
 
 function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
-  const href = role.archiveUrl ?? role.url
+  const href = role.id === 'watchlotto' ? role.url : role.archiveUrl ?? role.url
   return (
     <FadeUp delay={delay} className="role">
       <RoleLogo role={role} />
@@ -25,6 +25,13 @@ function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
         </div>
         <div className="role__meta">{role.dateLabel}</div>
         {role.location && <div className="role__meta">{role.location}</div>}
+        {role.id === 'watchlotto' && role.archiveUrl && (
+          <div className="role__meta">
+            <a href={role.archiveUrl} target="_blank" rel="noopener" className="history-company-link">
+              WatchLotto&apos;s historical archive
+            </a>
+          </div>
+        )}
       </div>
 
       <div className="role__body">
