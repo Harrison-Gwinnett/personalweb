@@ -73,7 +73,7 @@ export const historyRoles: HistoryRole[] = [
     title: 'Co-Founder & CMO',
     company: 'TGE Ventures',
     url: 'https://tge.ventures',
-    archiveUrl: 'https://tge-ventures.com',
+    archiveUrl: 'https://tgeventures.co',
     employmentType: 'Full-time',
     dateLabel: 'Jun 2023 – Sep 2025 · 2 yrs 4 mos',
     startDate: '2023-06',

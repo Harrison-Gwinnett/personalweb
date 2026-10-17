@@ -6,7 +6,7 @@ export const siteDescription =
   'Harrison Gwinnett started in the City of London at 16, sold Watchlotto at 22, co-founded TGE Ventures and now builds aarvo and tradrs.tv.'
 
 // Bump when the profile content changes; Google wants human edits here, not build time.
-const lastUpdated = '2026-10-12'
+const lastUpdated = '2026-10-17'
 
 const orgId = (id: string) => `${baseUrl}/#org-${id}`
 
