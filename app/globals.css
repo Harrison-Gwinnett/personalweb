@@ -13,6 +13,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Entrances decorate visible content and never depend on JavaScript to reveal it. */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    animation: page-lift 450ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+
+  .fade-in {
+    animation: page-fade 300ms ease-out backwards;
+  }
+}
+
+@keyframes page-lift {
+  from { transform: translateY(14px); }
+  to { transform: none; }
+}
+
+@keyframes page-fade {
+  from { opacity: 0.85; }
+  to { opacity: 1; }
+}
+
 a {
   text-decoration: none;
   color: inherit;
