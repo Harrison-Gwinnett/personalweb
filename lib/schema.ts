@@ -84,7 +84,6 @@ const person = {
     'https://x.com/HGGwinnett',
     'https://www.instagram.com/hggwinnett',
     'https://www.crunchbase.com/person/harrison-gwinnett',
-    'https://cursor.com/@hggwinnett',
   ],
   subjectOf: {
     '@type': 'NewsArticle',
