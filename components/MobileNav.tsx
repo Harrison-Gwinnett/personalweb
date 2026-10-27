@@ -46,7 +46,7 @@ export default function MobileNav() {
     backgroundColor: 'currentColor',
     borderRadius: '1px',
     transformOrigin: 'center',
-    transition: reduce ? 'none' : 'transform 220ms ease, opacity 160ms ease',
+    transition: 'transform 220ms ease, opacity 160ms ease',
   }
 
   return (
