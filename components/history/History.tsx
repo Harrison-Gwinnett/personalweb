@@ -1,7 +1,11 @@
 import { FadeUp } from '@/components/motion/primitives'
 import { SiteFooter, SiteNav } from '@/components/SiteChrome'
 import HighlightedText from '@/components/history/HighlightedText'
+import HistoryIndex from '@/components/history/HistoryIndex'
 import { historyRoles, type HistoryRole } from '@/lib/history'
+
+const roles = historyRoles.filter((role) => !role.parentId)
+const firstYear = Math.min(...historyRoles.map((role) => Number(role.startDate.slice(0, 4))))
 
 function RoleLogo({ role }: { role: HistoryRole }) {
   if (role.logoSrc) {
@@ -11,31 +15,34 @@ function RoleLogo({ role }: { role: HistoryRole }) {
   return <div aria-hidden="true" className="role__logo role__logo--label">{role.logoLabel}</div>
 }
 
-function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
-  const href = role.id === 'watchlotto' ? role.url : role.archiveUrl ?? role.url
+function RoleBlock({ role, subBrands }: { role: HistoryRole; subBrands: HistoryRole[] }) {
+  const href = role.archiveUrl ?? role.url
+  const introduction = [role.summary, role.closing].filter(Boolean).join(' ')
   return (
-    <FadeUp delay={delay} className="role">
-      <RoleLogo role={role} />
-      <div className="role__head">
-        <h2 className="role__title">{role.title}</h2>
-        <div className="role__company">
-          {href ? (
-            <a href={href} target="_blank" rel="noopener" className="history-company-link">{role.company}</a>
-          ) : role.company} · {role.employmentType}
-        </div>
-        <div className="role__meta">{role.dateLabel}</div>
-        {role.location && <div className="role__meta">{role.location}</div>}
-        {role.id === 'watchlotto' && role.archiveUrl && (
-          <div className="role__meta">
-            <a href={role.archiveUrl} target="_blank" rel="noopener" className="history-company-link">
-              WatchLotto&apos;s historical archive
-            </a>
-          </div>
-        )}
+    <article id={`history-${role.id}`} className="role" aria-labelledby={`${role.id}-title`} tabIndex={-1}>
+      <div className="role__date-row">
+        <p className="role__meta">{role.dateLabel}</p>
+        {role.id === 'tradrs' && <p className="role__status">Primary focus</p>}
       </div>
+      <header className="role__header">
+        <div className="role__head">
+          <h2 id={`${role.id}-title`} className="role__title">
+            {href ? (
+              <a href={href} target="_blank" rel="noopener noreferrer" className="role__link">
+                <span>{role.company}</span><span className="role__external" aria-hidden="true">↗</span>
+              </a>
+            ) : role.company}
+          </h2>
+          <p className="role__position">
+            {role.title}{role.employmentType && <> · {role.employmentType}</>}
+          </p>
+          {role.location && <p className="role__meta">{role.location}</p>}
+        </div>
+        <RoleLogo role={role} />
+      </header>
 
       <div className="role__body">
-        {role.summary && <p><HighlightedText>{role.summary}</HighlightedText></p>}
+        {introduction && <p><HighlightedText>{introduction}</HighlightedText></p>}
 
         {role.paragraphs?.map((p) => (
           <p key={p.slice(0, 24)}><HighlightedText>{p}</HighlightedText></p>
@@ -52,34 +59,59 @@ function RoleBlock({ role, delay }: { role: HistoryRole; delay: number }) {
           </ul>
         )}
 
-        {role.closing && <p className="role__closing"><HighlightedText>{role.closing}</HighlightedText></p>}
+        {subBrands.map((brand) => (
+          <section key={brand.id} className="role__chapter" aria-labelledby={`${brand.id}-title`}>
+            <p className="role__chapter-label">{role.company}&rsquo; education brand</p>
+            <div className="role__chapter-head">
+              <RoleLogo role={brand} />
+              <div>
+                <h3 id={`${brand.id}-title`} className="role__chapter-title">{brand.company}</h3>
+                <div className="role__chapter-meta">
+                  <span>{brand.title}</span>
+                  <p className="role__meta">{brand.dateLabel}</p>
+                </div>
+              </div>
+            </div>
+            {brand.summary && <p className="role__chapter-description">{brand.summary}</p>}
+          </section>
+        ))}
+
       </div>
-    </FadeUp>
+    </article>
   )
 }
 
 export default function History() {
   return (
-    <div className="page">
+    <div className="page history-page">
       <div className="page__inner">
+        <a href="#history-content" className="history-skip">Skip to history</a>
         <SiteNav />
 
-        <main>
+        <main id="history-content" tabIndex={-1}>
           <div className="history-head">
-            <FadeUp delay={0.07}>
-              <span className="history-eyebrow">HISTORY</span>
+            <FadeUp delay={0.04} className="history-head__meta">
+              <span className="history-eyebrow">History</span>
+              <span className="history-range">{firstYear}–Present</span>
             </FadeUp>
-            <FadeUp delay={0.13}>
-              <h1 className="history-title">Companies I&apos;ve built and led.</h1>
-            </FadeUp>
-            <FadeUp delay={0.18}>
+            <FadeUp delay={0.1} className="history-head__content">
+              <h1 className="history-title"><span>Companies I&apos;ve</span>{' '}<span>built and led.</span></h1>
               <p className="history-lede">A chronological record of founding roles, exits, and ventures.</p>
             </FadeUp>
           </div>
 
-          {historyRoles.map((role, i) => (
-            <RoleBlock key={role.id} role={role} delay={0.22 + i * 0.06} />
-          ))}
+          <div className="history-layout">
+            <HistoryIndex items={roles.map((role) => ({ id: role.id, company: role.company, year: role.startDate.slice(0, 4) }))} />
+            <div className="history-entries">
+              {roles.map((role) => (
+                <RoleBlock
+                  key={role.id}
+                  role={role}
+                  subBrands={historyRoles.filter((brand) => brand.parentId === role.id)}
+                />
+              ))}
+            </div>
+          </div>
         </main>
 
         <div className="page__spacer" />

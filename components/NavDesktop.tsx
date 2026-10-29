@@ -2,8 +2,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const GM = 'var(--font-geist-mono), system-ui, sans-serif'
-
 export default function NavDesktop() {
   const pathname = usePathname()
 
@@ -11,49 +9,25 @@ export default function NavDesktop() {
     path === '/' ? pathname === '/' : pathname.startsWith(path)
 
   return (
-    <div
-      style={{
-        alignItems: 'center',
-        display: 'flex',
-        justifyContent: 'space-between',
-        width: '100%',
-      }}
-    >
-      <Link
-        href="/"
-        className="nav-link"
-        style={{
-          color: '#1B1C18',
-          fontFamily: GM,
-          fontSize: '16px',
-          fontWeight: 500,
-          lineHeight: '20px',
-        }}
-      >
+    <header className="site-header">
+      <Link href="/" className="site-name">
         Harrison Gwinnett
       </Link>
-      <div style={{ alignItems: 'center', display: 'flex', gap: '30px' }}>
+      <nav className="site-nav" aria-label="Primary">
         {[
-          { href: '/', label: 'HOME' },
-          { href: '/history', label: 'HISTORY' },
+          { href: '/', label: 'Home' },
+          { href: '/history', label: 'History' },
         ].map(({ href, label }) => (
           <Link
             key={href}
             href={href}
-            className="nav-link"
-            style={{
-              color: active(href) ? '#1B1C18' : '#6B6E63',
-              fontFamily: GM,
-              fontSize: '13px',
-              fontWeight: 500,
-              letterSpacing: '0.04em',
-              lineHeight: '16px',
-            }}
+            className="site-nav__link"
+            aria-current={active(href) ? 'page' : undefined}
           >
             {label}
           </Link>
         ))}
-      </div>
-    </div>
+      </nav>
+    </header>
   )
 }

@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
-import { baseUrl, siteDescription as description } from '@/lib/schema'
+import { baseUrl, siteTitle, siteDescription as description, socialImage } from '@/lib/schema'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Harrison Gwinnett',
-    template: '%s - Harrison Gwinnett',
+    default: siteTitle,
+    template: '%s | Harrison Gwinnett',
   },
   description,
   authors: [{ name: 'Harrison Gwinnett', url: baseUrl }],
@@ -23,19 +23,21 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: 'website',
+    type: 'profile',
     locale: 'en_GB',
     url: baseUrl,
     siteName: 'Harrison Gwinnett',
-    title: 'Harrison Gwinnett',
+    title: siteTitle,
     description,
+    images: [socialImage],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     site: '@HGGwinnett',
     creator: '@HGGwinnett',
-    title: 'Harrison Gwinnett',
+    title: siteTitle,
     description,
+    images: [socialImage],
   },
 }
 

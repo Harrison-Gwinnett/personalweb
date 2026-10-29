@@ -1,12 +1,17 @@
 import { historyRoles } from '@/lib/history'
+import { birthDate, profileUpdated } from '@/lib/profile'
 
 export const baseUrl = 'https://harrisongwinnett.com'
 export const personId = `${baseUrl}/#person`
+export const siteTitle = 'Harrison Gwinnett | Founder of tradrs.tv'
 export const siteDescription =
-  'Harrison Gwinnett started in the City of London at 16, sold Watchlotto at 22, co-founded TGE Ventures and now builds aarvo and tradrs.tv.'
-
-// Bump when the profile content changes; Google wants human edits here, not build time.
-const lastUpdated = '2026-10-17'
+  'Harrison Gwinnett is the founder of tradrs.tv and develops aarvo alongside it. He exited Watchlotto at 22 and co-founded TGE Ventures.'
+export const socialImage = {
+  url: `${baseUrl}/harrison-gwinnett.jpg`,
+  width: 692,
+  height: 692,
+  alt: 'Harrison Gwinnett',
+}
 
 const orgId = (id: string) => `${baseUrl}/#org-${id}`
 
@@ -31,11 +36,10 @@ const organizations = historyRoles.map((role) => ({
           : {}),
       }
     : role.archiveUrl ? { sameAs: [role.archiveUrl] } : {}),
-  foundingDate: role.startDate,
   founder: { '@id': personId },
   description: role.summary ?? role.paragraphs?.[0],
   ...(role.location ? { location: { '@type': 'Place', name: role.location } } : {}),
-  ...(role.parentId ? { parentOrganization: { '@id': orgId(role.parentId) } } : {}),
+  ...(role.id === 'tge-ventures' ? { brand: { '@id': orgId('digital-asset-institute') } } : {}),
 }))
 
 // Role pattern: dated link between the Person and each company.
@@ -53,14 +57,15 @@ const person = {
   name: 'Harrison Gwinnett',
   givenName: 'Harrison',
   familyName: 'Gwinnett',
+  birthDate,
   url: baseUrl,
   image: {
     '@type': 'ImageObject',
     '@id': `${baseUrl}/#headshot`,
-    url: `${baseUrl}/harrison-gwinnett.jpg`,
-    width: 692,
-    height: 692,
-    caption: 'Harrison Gwinnett',
+    url: socialImage.url,
+    width: socialImage.width,
+    height: socialImage.height,
+    caption: socialImage.alt,
   },
   description: siteDescription,
   jobTitle: 'Founder',
@@ -86,7 +91,7 @@ const person = {
     'https://www.crunchbase.com/person/harrison-gwinnett',
   ],
   subjectOf: {
-    '@type': 'NewsArticle',
+    '@type': 'WebPage',
     headline: 'From Watches To Avatars: Building A Web3 Company From The Ground Up',
     url: 'https://www.forbes.com/sites/trevorclawson/2023/04/22/from-watches-to-avatars-building-a-web3-company-from-the-ground-up/',
     datePublished: '2023-04-22',
@@ -114,7 +119,7 @@ export function profileJsonLd(path: string, name: string) {
         url,
         name,
         isPartOf: { '@id': `${baseUrl}/#website` },
-        dateModified: lastUpdated,
+        dateModified: profileUpdated,
         mainEntity: { '@id': personId },
       },
       person,

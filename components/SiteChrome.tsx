@@ -1,15 +1,11 @@
 import NavDesktop from '@/components/NavDesktop'
-import MobileNav from '@/components/MobileNav'
 import { FadeIn } from '@/components/motion/primitives'
 import { socialLinks } from '@/lib/social'
 
-// Nav differs in behaviour (menu overlay on mobile), so both render and CSS picks one.
-// Page content is rendered once.
 export function SiteNav() {
   return (
     <FadeIn delay={0} style={{ width: '100%' }}>
-      <div className="desktop-only"><NavDesktop /></div>
-      <div className="mobile-only"><MobileNav /></div>
+      <NavDesktop />
     </FadeIn>
   )
 }
@@ -17,12 +13,14 @@ export function SiteNav() {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <span className="site-footer__copy">© 2026 HARRISON GWINNETT</span>
-      <div className="site-footer__links">
+      <span className="site-footer__copy">© 2026 Harrison Gwinnett</span>
+      <nav className="site-footer__links" aria-label="Social profiles">
         {socialLinks.map(({ label, href }) => (
-          <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="footer-link">{label}</a>
+          <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="footer-link" aria-label={`${label} (opens in a new tab)`}>
+            <span className="footer-link__label">{label}</span><span className="footer-link__arrow" aria-hidden="true">↗</span>
+          </a>
         ))}
-      </div>
+      </nav>
     </footer>
   )
 }

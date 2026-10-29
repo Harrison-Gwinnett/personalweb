@@ -1,23 +1,35 @@
 import type { Metadata } from 'next'
 import History from '@/components/history/History'
-import { profileJsonLd } from '@/lib/schema'
+import { baseUrl, profileJsonLd, socialImage } from '@/lib/schema'
 
+const title = 'History | Harrison Gwinnett'
 const description =
-  'Experience and founding history of Harrison Gwinnett: Watchlotto, Virtual Versions, TGE Ventures, Digital Asset Institute, aarvo and tradrs.tv.'
+  "Harrison Gwinnett's business history: tradrs.tv, aarvo, TGE Ventures, Digital Asset Institute, Virtual Versions and his Watchlotto exit at 22."
 
 export const metadata: Metadata = {
-  title: 'History',
+  title: { absolute: title },
   description,
   alternates: { canonical: '/history' },
   openGraph: {
     type: 'profile',
-    url: 'https://harrisongwinnett.com/history',
-    title: 'History - Harrison Gwinnett',
+    locale: 'en_GB',
+    siteName: 'Harrison Gwinnett',
+    url: `${baseUrl}/history`,
+    title,
     description,
+    images: [socialImage],
+  },
+  twitter: {
+    card: 'summary',
+    site: '@HGGwinnett',
+    creator: '@HGGwinnett',
+    title,
+    description,
+    images: [socialImage],
   },
 }
 
-const jsonLd = profileJsonLd('/history', 'History - Harrison Gwinnett')
+const jsonLd = profileJsonLd('/history', title)
 
 export default function HistoryPage() {
   return (

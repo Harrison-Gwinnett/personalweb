@@ -16,11 +16,11 @@ export default function AarvoChip({
       aria-label={`${label} (opens in a new tab)`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={icon} alt="" width={14} height={14} />
-      <span>
+      <img src={icon} alt="" width={20} height={20} />
+      <span className="aarvo-chip__label">
         {label}
       </span>
-      <svg className="aarvo-chip__arrow" width={10} height={10} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <svg className="aarvo-chip__arrow" width={12} height={12} viewBox="0 0 16 16" fill="none" aria-hidden="true">
         <path d="M4 12 12 4M5 4h7v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </a>
