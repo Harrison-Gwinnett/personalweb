@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
 import Home from '@/components/home/Home'
-import { profileJsonLd } from '@/lib/schema'
+import { profileJsonLd, siteTitle } from '@/lib/schema'
+
+// Refresh the server-rendered age daily, including after each birthday.
+export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: { absolute: 'Harrison Gwinnett: Founder of aarvo and tradrs.tv' },
+  title: { absolute: siteTitle },
   alternates: { canonical: '/' },
 }
 
-const jsonLd = profileJsonLd('/', 'Harrison Gwinnett')
+const jsonLd = profileJsonLd('/', siteTitle)
 
 export default function HomePage() {
   return (
