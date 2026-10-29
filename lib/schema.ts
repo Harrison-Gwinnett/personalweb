@@ -15,6 +15,14 @@ export const socialImage = {
 
 const orgId = (id: string) => `${baseUrl}/#org-${id}`
 
+const tgeArchiveUrl = historyRoles.find((role) => role.id === 'tge-ventures')?.archiveUrl
+const tgeArchive = tgeArchiveUrl ? {
+  '@type': 'CollectionPage',
+  '@id': new URL('/#page', tgeArchiveUrl).href,
+  url: tgeArchiveUrl,
+  about: [{ '@id': orgId('tge-ventures') }, { '@id': personId }],
+} : undefined
+
 // One Organization per company, each pointing back to the same Person as founder.
 const organizations = historyRoles.map((role) => ({
   '@type': 'Organization',
@@ -39,7 +47,10 @@ const organizations = historyRoles.map((role) => ({
   founder: { '@id': personId },
   description: role.summary ?? role.paragraphs?.[0],
   ...(role.location ? { location: { '@type': 'Place', name: role.location } } : {}),
-  ...(role.id === 'tge-ventures' ? { brand: { '@id': orgId('digital-asset-institute') } } : {}),
+  ...(role.id === 'tge-ventures' ? {
+    brand: { '@id': orgId('digital-asset-institute') },
+    ...(tgeArchive ? { subjectOf: tgeArchive } : {}),
+  } : {}),
 }))
 
 // Role pattern: dated link between the Person and each company.
@@ -90,13 +101,26 @@ const person = {
     'https://www.instagram.com/hggwinnett',
     'https://www.crunchbase.com/person/harrison-gwinnett',
   ],
-  subjectOf: {
-    '@type': 'WebPage',
-    headline: 'From Watches To Avatars: Building A Web3 Company From The Ground Up',
-    url: 'https://www.forbes.com/sites/trevorclawson/2023/04/22/from-watches-to-avatars-building-a-web3-company-from-the-ground-up/',
-    datePublished: '2023-04-22',
-    publisher: { '@type': 'Organization', name: 'Forbes', url: 'https://www.forbes.com' },
-  },
+  subjectOf: [
+    {
+      '@type': 'WebPage',
+      headline: 'From Watches To Avatars: Building A Web3 Company From The Ground Up',
+      url: 'https://www.forbes.com/sites/trevorclawson/2023/04/22/from-watches-to-avatars-building-a-web3-company-from-the-ground-up/',
+      datePublished: '2023-04-22',
+      publisher: { '@type': 'Organization', name: 'Forbes', url: 'https://www.forbes.com' },
+    },
+    {
+      '@type': 'WebPage',
+      headline: 'What building and exiting a multi-million pound business taught me about entrepreneurship (and life)',
+      url: 'https://startupsmagazine.co.uk/article-what-building-and-exiting-multi-million-pound-business-taught-me-about-entrepreneurship-and',
+      datePublished: '2023-03-28',
+      genre: 'First-person contribution',
+      author: { '@id': personId },
+      about: [{ '@id': personId }, { '@id': orgId('watchlotto') }],
+      publisher: { '@type': 'Organization', name: 'Startups Magazine', url: 'https://startupsmagazine.co.uk' },
+    },
+    ...(tgeArchive ? [tgeArchive] : []),
+  ],
 }
 
 const website = {

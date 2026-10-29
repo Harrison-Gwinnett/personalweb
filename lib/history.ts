@@ -84,7 +84,7 @@ export const historyRoles: HistoryRole[] = [
     summary: 'A Blockchain focused incubation firm, advising and investing in blockchain companies.',
     bullets: [
       'Independently valued at $33M as part of the share-swap acquisition.',
-      'Scaled to $6m in top-line revenue in the first 180 days from founding.',
+      'Scaled to $4M in top-line revenue in the first 180 days from founding.',
       'Generated $35m for clients in Y1.',
       'Personally led all marketing activities as CMO which was our largest revenue stream.',
     ],
