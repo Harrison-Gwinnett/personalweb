@@ -7,9 +7,9 @@ export const siteTitle = 'Harrison Gwinnett | Founder of tradrs.tv'
 export const siteDescription =
   'Harrison Gwinnett is the founder of tradrs.tv and develops aarvo alongside it. He exited Watchlotto at 22 and co-founded TGE Ventures.'
 export const socialImage = {
-  url: `${baseUrl}/harrison-gwinnett.jpg`,
-  width: 692,
-  height: 692,
+  url: `${baseUrl}/harrison-gwinnett-headshot.jpg`,
+  width: 880,
+  height: 880,
   alt: 'Harrison Gwinnett',
 }
 
@@ -98,7 +98,7 @@ const person = {
     'https://www.wikidata.org/wiki/Q140185272',
     'https://www.linkedin.com/in/harrisongwinnett/',
     'https://x.com/HGGwinnett',
-    'https://www.instagram.com/hggwinnett',
+    'https://www.instagram.com/harrison.gwinnett/',
     'https://www.crunchbase.com/person/harrison-gwinnett',
   ],
   subjectOf: [
