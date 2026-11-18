@@ -98,7 +98,7 @@ const person = {
     'https://www.wikidata.org/wiki/Q140185272',
     'https://www.linkedin.com/in/harrisongwinnett/',
     'https://x.com/HGGwinnett',
-    'https://www.instagram.com/hggwinnett',
+    'https://www.instagram.com/harrison.gwinnett/',
     'https://www.crunchbase.com/person/harrison-gwinnett',
   ],
   subjectOf: [
